@@ -31,7 +31,7 @@ app.use(myconnection(mysql, {
     password: '12345678',
     port: 3306,
     database: 'profesor'
-}))
+})) 
 
 app.use('/', personsRoutes);
 
