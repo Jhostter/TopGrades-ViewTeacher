@@ -1,9 +1,9 @@
-<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+<div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
   <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
 
     <table class="table-fixed w-full">
       <thead>
-        <tr class="bg-blue-500 text-white">
+        <tr class="bg-blue-500 text-white text-xs ms:text-base md:text-base">
           <th class="w-20 py-4 ...">ID</th>
           <th class="w-1/4 py-4 ...">Full Name</th>
           <th class="w-1/4 py-4 ...">Skin Color</th>
@@ -13,9 +13,9 @@
       </thead>
       <tbody>
         {{#each persons}}
-        <tr>
-          <td class="py-3 px-6">{{id}}</td>
-          <td class="p-3">{{nombre}}</td>
+        <tr class="text-xs ms:text-base md:text-base">
+          <td class="py-3 px-6 text-center">{{id}}</td>
+          <td class="p-3 text-center">{{nombre}}</td>
           <td class="p-3 text-center">{{colorPiel}}</td>
           <td class="p-3 text-center">{{edad}}</td>
           <td class="p-3 flex">
