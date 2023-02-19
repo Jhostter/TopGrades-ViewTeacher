@@ -6,10 +6,10 @@ const mysql = require("mysql")
 const personsRoutes = require('./routes/persons');
 const app = express()
 
-app.set('port', 8000)
+const PORT = process.env.PORT || 8000;
 
-app.listen(app.get('port'), ()=>{
-    console.log("Se esta Escuchando en el puerto", app.get('port'))
+app.listen(PORT, ()=>{
+    console.log("Se esta Escuchando en el puerto", PORT)
 })
 
 app.use(bodyParser.urlencoded({
