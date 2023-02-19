@@ -25,13 +25,13 @@ app.engine(".hbs", engine({
 
 app.set("view engine", "hbs")
 
-app.use(myconnection(mysql, {
-    host: '0.0.0.0',
-    user: 'root',
-    password: '',
-    port: 3306,
-    database: 'profesor'
-}))
+// app.use(myconnection(mysql, {
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     port: 3306,
+//     database: 'profesor'
+// }))
 
 app.use('/', personsRoutes);
 
