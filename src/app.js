@@ -26,6 +26,7 @@ app.engine(".hbs", engine({
 app.set("view engine", "hbs")
 
 app.use(myconnection(mysql, {
+    connectionLimit: 100,
     host: 'db4free.net',
     user: 'testuser1234',
     password: '12345678',
@@ -36,7 +37,7 @@ app.use(myconnection(mysql, {
 app.use('/', personsRoutes);
 
 app.get("/", (req, res)=>{
-    res.render('persons/index')
+    res.render('home')
 })
 
 console.clear()
