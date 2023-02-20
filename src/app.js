@@ -36,7 +36,7 @@ app.use(myconnection(mysql, {
 app.use('/', personsRoutes);
 
 app.get("/", (req, res)=>{
-    res.render('home')
+    res.render('persons/index')
 })
 
 console.clear()
