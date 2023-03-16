@@ -3,10 +3,11 @@ const {engine} = require("express-handlebars")
 const myconnection = require("express-myconnection")
 const bodyParser = require("body-parser")
 const mysql = require("mysql")
-const personsRoutes = require('./routes/persons');
+const studentsRoutes = require('./routes/students');
+const teachersRoutes = require('./routes/grades');
 const app = express()
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 7000;
 
 app.listen(PORT, ()=>{
     console.log("Se esta Escuchando en el puerto", PORT)
@@ -28,13 +29,14 @@ app.set("view engine", "hbs")
 app.use(myconnection(mysql, {
     connectionLimit: 100,
     host: 'db4free.net',
-    user: 'testuser1234',
-    password: '12345678',
+    user: 'timberlake',
+    password: '123654hola',
     port: 3306,
-    database: 'profesor'
+    database: 'appgrade'
 })) 
 
-app.use('/', personsRoutes);
+app.use('/', studentsRoutes);
+app.use('/', teachersRoutes);
 
 app.get("/", (req, res)=>{
     res.render('home')

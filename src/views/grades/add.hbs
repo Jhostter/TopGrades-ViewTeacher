@@ -1,0 +1,133 @@
+<!-- component Search-->
+<form action="/studentsG/search" method="post" class="my-4" >
+  <div class="container mx-auto flex justify-center items-center p-2 md:p-0">
+    <div class="p-6 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-lg">
+      <div id="form_S_T" class="">
+        <div class="grid grid-cols-3 gap-3 border border-gray-200 p-2 rounded">
+          <div class="flex rounded bg-gray-300 items-center p-2">
+            <svg class="fill-current text-gray-800 mr-2 h-7 w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              class="bi bi-bookmark">
+              <path
+                d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
+                id="mainIconPathAttribute" stroke-width="0" stroke="#ff0000" fill="#000000"></path>
+            </svg>
+            <select name="filterGrade" class="bg-gray-300 w-full focus:outline-none text-gray-700">
+              <option label="Seleccione el grado"></option>
+              <option value="3ro">3ro</option>
+              <option value="4to">4to</option>
+              <option value="5to">5to</option>
+              <option value="6to">6to</option>
+            </select>
+          </div>
+          <div class="flex rounded bg-gray-300 items-center p-2">
+            <svg class="fill-current text-gray-800 mr-2 h-7 w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              class="bi bi-bookmark">
+              <path
+                d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
+                id="mainIconPathAttribute" stroke-width="0" stroke="#ff0000" fill="#000000"></path>
+            </svg>
+            <select name="filterArea" class="bg-gray-300 w-full focus:outline-none text-gray-700">
+              <option label="Selecione el área o sección"></option>
+              <optgroup label="Sección">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+              </optgroup>
+              <optgroup label="Área">
+                <option value="Informática">Informática</option>
+                <option value="Enfermería">Enfermería</option>
+                <option value="Mercadeo">Mercadeo</option>
+                <option value="Gestión">Gestión</option>
+                <option value="Mueble">Mueble</option>
+                <option value="Moda">Moda</option>
+              </optgroup>
+
+            </select>
+          </div>
+          <div class="">
+            <button class="p-2 border w-full rounded-md bg-gray-800 text-white"
+              type="submit">Buscar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
+<div
+  class="block mx-auto my-12 p-8 bg-white w-2/3 border border-gray-200 rounded-lg shadow-lg text-gray-800 sm:w-2/3 md:w-2/4">
+
+  <h1 class="text-center text-3xl font-bold">Agregar Calificación</h1>
+
+  <form action="/addGrade" method="POST" class="mt-4">
+    <input type="hidden" name="matricula">
+    <input list="nombres_est" type="text"
+      class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 focus:bg-white"
+      placeholder="Nombre del estudiante" name="nombre_est" autocomplete="off"
+      required />
+
+    <datalist id="nombres_est">
+      {{#each studentsF}}
+         <option value='{{nombre}} {{apellido}}'>
+      {{/each}}
+    </datalist>
+
+    <label for="grado">Grado</label>
+
+    <input name="grado" id="grado"
+      class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 focus:bg-white"
+      required
+      value={{gr}}
+    />
+
+    <label for="area">Área o sección</label>
+
+    <input name="area" id="area"
+      class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 focus:bg-white"
+      required
+      value={{ar}}
+    />
+
+    <input name="asignatura" list="asignaturas"
+      class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 focus:bg-white"
+      placeholder="Asignatura" required />
+    <datalist id="asignaturas">
+      <optgroup label="Normales">
+        <option value="Lenguaje">Lengua Española</option>
+        <option value="Matemática">Matemática</option>
+        <option value="Sociales">Sociales</option>
+        <option value="Naturales">Naturales</option>
+        <option value="FIHR">FIHR</option>
+        <option value="Inglés">Inglés</option>
+        <option value="Francés">Francés</option>
+        <option value="Educación Artística">Educación Artística</option>
+        <option value="Educación Física">Educación Física</option>
+      </optgroup>
+      <optgroup label="Técnicas">
+        <option value="Desarrollo de base de datos">Desarrollo de base de datos</option>
+        <option value="Contabilidad">Contabilidad</option>
+      </optgroup>
+    </datalist>
+    <input type="number"
+      class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 focus:bg-white"
+      placeholder="Calificación" name="calificacion" required />
+    <select
+      class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 focus:bg-white"
+      name="periodo" required>
+      <option label="Período"></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+
+    </select>
+
+    <button type="submit"
+      class="rounded-md bg-green-500 w-full text-lg text-white font-semibold p-2 my-3 hover:bg-green-600 focus:bg-green-700">Agregar
+      Calificación</button>
+
+  </form>
+
+</div>

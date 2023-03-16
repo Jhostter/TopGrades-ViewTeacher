@@ -1,0 +1,64 @@
+<div
+  class="block mx-auto my-12 p-8 bg-white w-2/3 border border-gray-200 rounded-lg shadow-lg text-gray-800 sm:w-2/3 md:w-2/4"
+>
+
+  <h1 class="text-center text-3xl font-bold">Modificar Calificacion</h1>
+  {{#each grades}}
+    <form action="" method="POST" class="mt-4">
+
+      <div class="flex space-x-3 text-white bg-red-500 rounded-lg p-2">
+        <p class="text-2xl">{{nombre_est}}<p/>
+        <p class="text-2xl">{{grado}}<p/>
+        <p class="text-2xl">{{area}}</p>
+      </div>
+
+      <input
+        name="asignatura"
+        list="asignaturas"
+        class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 focus:bg-white"
+        placeholder="Asignatura"
+        value={{asignatura}}
+        required
+      />
+      <datalist id="asignaturas">
+        <optgroup label="Normales">
+          <option value="Sociales">Sociales</option>
+          <option value="Lenguaje">Lenguaje</option>
+          <option value="Matematica">Matematica</option>
+        </optgroup>
+        <optgroup label="Tecnicas">
+          <option value="Desarrollo de app Web">Desarrollo de app Web</option>
+          <option value="Base de datos">Base de datos</option>
+          <option value="Analisis y disenos de reportes">Analisis y disenos de
+            reportes</option>
+        </optgroup>
+      </datalist>
+      <input
+        type="number"
+        class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 focus:bg-white"
+        placeholder="Calificacion"
+        name="calificacion"
+        value={{calificacion}}
+        required
+      />
+      <select
+        class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 focus:bg-white"
+        name="periodo"
+        required
+      >
+        <option label="Cambie el periodo actual: {{periodo}}"></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+
+      </select>
+
+      <button
+        type="submit"
+        class="rounded-md bg-green-500 w-full text-lg text-white font-semibold p-2 my-3 hover:bg-green-600 focus:bg-green-700"
+      >Guardar Cambios</button>
+
+    </form>
+  {{/each}}
+</div>
