@@ -39,7 +39,7 @@ app.use('/', studentsRoutes);
 app.use('/', teachersRoutes);
 
 app.get("/", (req, res)=>{
-    res.render('home')
+    res.redirect('/students')
 })
 
 console.clear()
